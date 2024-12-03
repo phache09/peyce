@@ -1,0 +1,134 @@
+/* Resetando margens e preenchimentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradiente suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    position: relative;
+    overflow: hidden; /* Impede que as imagens ultrapassem a tela */
+}
+
+/* Container principal */
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo translúcido */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 420px;
+    position: relative;
+    z-index: 2; /* Garantir que a contagem apareça acima das imagens */
+}
+
+/* Título principal */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Cronômetro */
+#timer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Cada bloco de tempo (dias, horas, minutos, segundos) */
+.time-block {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 90px;
+    height: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito de aumento ao passar o mouse */
+.time-block:hover {
+    transform: scale(1.1);
+}
+
+/* Valor do tempo */
+.time-value {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffeb3b; /* Amarelo vibrante */
+    line-height: 1;
+}
+
+/* Rótulo do tempo (Dias, Horas, etc.) */
+.time-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ccc;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Animação de transição suave para os valores do cronômetro */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#timer p {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Container das imagens espalhadas pela página */
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Coloca as imagens atrás da contagem */
+    pointer-events: none; /* As imagens não vão interferir nos cliques na página */
+}
+
+/* Estilo das imagens */
+.image {
+    width: 120px; /* Define um tamanho fixo para as imagens */
+    height: auto; /* Mantém a proporção das imagens */
+    object-fit: contain; /* Garante que as imagens se ajustem sem cortar */
+    border-radius: 0; /* Deixa as imagens no formato original */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra suave para destacar */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de movimentação suave nas imagens */
+.image:hover {
+    transform: scale(1.1); /* Aumenta um pouco a imagem ao passar o mouse */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .image {
+        width: 100px; /* Ajusta para um tamanho menor em telas médias */
+    }
+}
+
+@media (max-width: 480px) {
+    .image {
+        width: 80px; /* Ajusta para um tamanho ainda menor em telas pequenas */
+    }
+}
